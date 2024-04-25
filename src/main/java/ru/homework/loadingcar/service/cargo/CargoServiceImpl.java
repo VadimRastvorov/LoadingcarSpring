@@ -24,10 +24,4 @@ public class CargoServiceImpl implements CargoService {
                 .flatMap(Collection::stream)
                 .toList();
     }
-
-    public List<Cargo> createCargoSortedList(String contentString) {
-        var cargoSortedList = createCargoList(contentString).stream().sorted((a, b) -> b.number() - a.number()).toList();
-        log.info("сортировка груза: '{}'", cargoSortedList);
-        return cargoSortedList;
-    }
 }

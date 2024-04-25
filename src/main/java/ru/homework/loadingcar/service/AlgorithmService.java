@@ -15,7 +15,7 @@ public class AlgorithmService {
 
     static {
         Reflections reflections = new Reflections(TruckService.class.getPackageName());
-        reflections.getSubTypesOf(TruckService.class).stream()
+        reflections.getSubTypesOf(TruckService.class)
                 .forEach(aClass -> createTruckServiceAndPutIntoMap(aClass));
 
         for (var algorithmType : AlgorithmType.values()) {
@@ -27,8 +27,7 @@ public class AlgorithmService {
 
     @SneakyThrows
     private static void createTruckServiceAndPutIntoMap(Class<? extends TruckService> aClass) {
-        TruckService truckService;
-        truckService = aClass.newInstance();
+        TruckService truckService = aClass.newInstance();
         map.put(truckService.getAlgorithmType(), truckService);
     }
 

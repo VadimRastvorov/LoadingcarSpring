@@ -6,5 +6,4 @@ import java.util.List;
 
 public interface CargoService {
     List<Cargo> createCargoList(String contentString);
-    List<Cargo> createCargoSortedList(String contentString);
 }
