@@ -49,7 +49,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         try {
             execute(sendMessage);
         } catch (TelegramApiException e) {
-            log.info("ошибка в методе sendMessage: '{}'", e);
+            log.info("TelegramApiException In Method sendMessage: '{}'", e);
         }
     }
 }
