@@ -30,17 +30,13 @@ public class ProcessingInComMessageService {
     public String telegramPrint(String messageText, String name) {
         TelegramMessage telegramMessage = TelegramMessageUtil.getTelegramMessage(messageText);
 
-        switch (telegramMessage.telegramCommandType()) {
-            case START:
-                return "Привет, " + name + "!" + "\n" +
-                        "пример ввода команды: load";
-            case LOAD:
-                return printLoadingTruck(CURRENCIES_TSV_FILE_NAME, telegramMessage.algorithmType());
-            case CARGO:
-                return fileRead.createStringFileContent(CURRENCIES_TSV_FILE_NAME);
-            default:
-                return "Введенная команда не распознана";
-        }
+        return switch (telegramMessage.telegramCommandType()) {
+            case START -> "Привет, " + name + "!" + "\n" +
+                    "пример ввода команды: load";
+            case LOAD -> printLoadingTruck(CURRENCIES_TSV_FILE_NAME, telegramMessage.algorithmType());
+            case CARGO -> fileRead.createStringFileContent(CURRENCIES_TSV_FILE_NAME);
+            default -> "Введенная команда не распознана";
+        };
     }
 
     public String shellPrintLoadingTruck(String fileName, String alg) {

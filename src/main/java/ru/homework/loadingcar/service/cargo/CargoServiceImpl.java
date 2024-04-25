@@ -16,12 +16,10 @@ public class CargoServiceImpl implements CargoService {
     public List<Cargo> createCargoList(String contentString) {
         log.info("получение всего груза: '{}'", contentString);
         return CargoType.stream()
-                .map(a -> {
-                    return Pattern.compile(a.getPattern()).matcher(contentString)
-                            .results()
-                            .map(s -> new Cargo(a.getSize(), a.getNumber()))
-                            .toList();
-                })
+                .map(a -> Pattern.compile(a.getPattern()).matcher(contentString)
+                        .results()
+                        .map(s -> new Cargo(a.getSize(), a.getNumber()))
+                        .toList())
                 .filter(a -> !a.isEmpty())
                 .flatMap(Collection::stream)
                 .toList();
