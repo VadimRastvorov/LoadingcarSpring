@@ -16,7 +16,7 @@ public class AlgorithmService {
     static {
         Reflections reflections = new Reflections(TruckService.class.getPackageName());
         reflections.getSubTypesOf(TruckService.class)
-                .forEach(aClass -> createTruckServiceAndPutIntoMap(aClass));
+                .forEach(AlgorithmService::createTruckServiceAndPutIntoMap);
 
         for (var algorithmType : AlgorithmType.values()) {
             if (!map.containsKey(algorithmType)) {

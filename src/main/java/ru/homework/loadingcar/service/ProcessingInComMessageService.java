@@ -15,7 +15,7 @@ import java.util.List;
 
 @Service
 public class ProcessingInComMessageService {
-    private final String CURRENCIES_TSV_FILE_NAME = "package3.npk";
+    private final static String CURRENCIES_TSV_FILE_NAME = "package3.npk";
     private final FileReadService fileRead;
     private final CargoService cargoService;
     private final PrintService printService;
@@ -35,7 +35,6 @@ public class ProcessingInComMessageService {
                     "пример ввода команды: load";
             case LOAD -> printLoadingTruck(CURRENCIES_TSV_FILE_NAME, telegramMessage.algorithmType());
             case CARGO -> fileRead.createStringFileContent(CURRENCIES_TSV_FILE_NAME);
-            default -> "Введенная команда не распознана";
         };
     }
 
