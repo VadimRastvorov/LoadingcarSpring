@@ -24,6 +24,7 @@ public class TruckUtil {
                     for (int c = i; c < cargo.size().length; c++) {
                         if (cargoTruck[heigh][j] > 0) {
                             heightFlag = false;
+                            break;
                         }
                     }
                     if (heightFlag) {
@@ -54,7 +55,7 @@ public class TruckUtil {
     }
 
     public static int[][] getMatrixCargoTruck(List<Cargo> cargoList) {
-        log.info("запуск метода TruckUtil.getMatrixCargoTruck: {}", cargoList.stream().map(a -> a.number()).toList());
+        log.info("запуск метода TruckUtil.getMatrixCargoTruck: {}", cargoList.stream().map(Cargo::number).toList());
         int[][] outCargoTruck = new int[CAR_CASE_HEIGHT][CAR_CASE_WIDTH];
         for (Cargo cargoSize : cargoList) {
             boolean loadingNewCar = true;
@@ -65,6 +66,7 @@ public class TruckUtil {
                         for (int c = i; c < cargoSize.size().length; c++) {
                             if (outCargoTruck[i + cargoSize.size().length - 1][j] > 0) {
                                 heightFlag = false;
+                                break;
                             }
                         }
                         if (heightFlag) {

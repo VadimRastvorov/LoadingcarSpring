@@ -12,12 +12,12 @@ import java.util.List;
 public class PrintServiceImpl implements PrintService {
     public String printTruckListToString(List<Truck> truckList) {
         StringBuilder stringBuilder = new StringBuilder();
-        truckList.stream()
+        truckList
                 .forEach(a -> printTruckToStringBuilder(a, stringBuilder));
         return stringBuilder.toString();
     }
 
-    private StringBuilder printTruckToStringBuilder(Truck truck, StringBuilder stringBuilder) {
-        return stringBuilder.append(System.getProperty("line.separator")).append(truck.toString());
+    private void printTruckToStringBuilder(Truck truck, StringBuilder stringBuilder) {
+        stringBuilder.append(System.lineSeparator()).append(truck.toString());
     }
 }

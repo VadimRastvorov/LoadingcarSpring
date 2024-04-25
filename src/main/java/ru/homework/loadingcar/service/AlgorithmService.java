@@ -27,7 +27,8 @@ public class AlgorithmService {
 
     @SneakyThrows
     private static void createTruckServiceAndPutIntoMap(Class<? extends TruckService> aClass) {
-        TruckService truckService = aClass.newInstance();
+        TruckService truckService;
+        truckService = aClass.newInstance();
         map.put(truckService.getAlgorithmType(), truckService);
     }
 

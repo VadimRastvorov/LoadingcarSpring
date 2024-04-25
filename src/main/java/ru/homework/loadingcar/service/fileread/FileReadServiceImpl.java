@@ -19,9 +19,9 @@ public class FileReadServiceImpl implements FileReadService {
 
     @SneakyThrows
     private Path getFullPath(String fileName) {
-        return Paths.get(Objects.requireNonNull(this.getClass()
+        return Paths.get(Objects.requireNonNull(Objects.requireNonNull(this.getClass()
                         .getClassLoader()
-                        .getResource(FILE_DIRECTORY_RESOURCES.concat("/".concat(fileName)))
+                        .getResource(FILE_DIRECTORY_RESOURCES.concat("/".concat(fileName))))
                 .toURI()));
     }
 

@@ -26,7 +26,7 @@ public class TrucksJsonToTrucks {
                 cargoList.add(Cargo.builder()
                         .size(CargoType.stream()
                                 .filter(a -> a.getNumber() == cargoNumber)
-                                .map(a -> a.getSize())
+                                .map(CargoType::getSize)
                                 .findFirst()
                                 .orElse(null))
                         .number(cargoNumber)

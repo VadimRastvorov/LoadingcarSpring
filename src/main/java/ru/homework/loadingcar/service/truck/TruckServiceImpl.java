@@ -56,7 +56,7 @@ public class TruckServiceImpl implements TruckService {
     }
 
     private Truck loadingTruck(List<Cargo> cargoList, int[][] cargo) {
-        log.info("погрузка автомобиля: '{}'", cargoList.stream().map(a -> a.number()).toList());
+        log.info("погрузка автомобиля: '{}'", cargoList.stream().map(Cargo::number).toList());
         return Truck.builder()
                 .cargoTruck(cargo)
                 .cargoList(cargoList)
