@@ -5,6 +5,6 @@ import ru.homework.loadingcar.entity.Cargo;
 import java.util.List;
 
 public interface CargoService {
-    List<Cargo> getCargoList(String contentString);
-    List<Cargo> getCargoSortedList(String contentString);
+    List<Cargo> createCargoList(String contentString);
+    List<Cargo> createCargoSortedList(String contentString);
 }

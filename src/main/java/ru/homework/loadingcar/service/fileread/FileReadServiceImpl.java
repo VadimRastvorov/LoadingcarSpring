@@ -26,12 +26,12 @@ public class FileReadServiceImpl implements FileReadService {
     }
 
     @SneakyThrows
-    public List<String> getListFileContent(String fileName) {
+    public List<String> createListFileContent(String fileName) {
         return Files.readAllLines(getFullPath(fileName), StandardCharsets.UTF_8);
     }
 
     @SneakyThrows
-    public String getStringFileContent(String fileName) {
+    public String createStringFileContent(String fileName) {
         return Files.readString(getFullPath(fileName), StandardCharsets.UTF_8);
     }
 }

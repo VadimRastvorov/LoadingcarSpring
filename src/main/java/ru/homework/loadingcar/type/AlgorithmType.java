@@ -1,7 +1,6 @@
 package ru.homework.loadingcar.type;
 
 import java.util.Arrays;
-import java.util.Optional;
 
 public enum AlgorithmType {
     ALGORITHM_V1("alg1"),
@@ -16,6 +15,6 @@ public enum AlgorithmType {
     public static AlgorithmType get(String algName) {
         return Arrays.stream(AlgorithmType.values())
                 .filter(algorithmType -> algorithmType.algName.equals(algName))
-                .findFirst().get();
+                .findFirst().orElse(ALGORITHM_V1);
     }
 }

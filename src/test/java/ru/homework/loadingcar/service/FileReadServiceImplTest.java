@@ -11,16 +11,16 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class FileReadServiceImplTest {
 
     @Test
-    void getListFileContent() {
+    void createListFileContent() {
         FileReadServiceImpl fileReadServiceImpl = new FileReadServiceImpl();
-        List<String> fileList = fileReadServiceImpl.getListFileContent("package.npk");
+        List<String> fileList = fileReadServiceImpl.createListFileContent("package.npk");
         assertTrue(fileList.contains("333"));
     }
 
     @Test
-    void getStringFileContent() {
+    void createStringFileContent() {
         FileReadServiceImpl fileReadServiceImpl = new FileReadServiceImpl();
-        String file = fileReadServiceImpl.getStringFileContent("package.npk");
+        String file = fileReadServiceImpl.createStringFileContent("package.npk");
         assertEquals("333", file, "не удалось сравнить значение с прочитанного файла");
     }
 }

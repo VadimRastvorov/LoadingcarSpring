@@ -1,6 +1,5 @@
 package ru.homework.loadingcar.json.map;
 
-//import lombok.extern.slf4j.Slf4j;
 import ru.homework.loadingcar.entity.Cargo;
 import ru.homework.loadingcar.entity.Truck;
 import ru.homework.loadingcar.json.dto.TruckJson;
@@ -9,7 +8,6 @@ import ru.homework.loadingcar.json.dto.TrucksJson;
 import java.util.ArrayList;
 import java.util.List;
 
-//@Slf4j
 public class TrucksToTrucksJson {
     private final List<Truck> trucks;
 
@@ -18,11 +16,10 @@ public class TrucksToTrucksJson {
     }
 
     public TrucksJson mapToTrucksJson() {
-        //log.info("вызов метода TrucksToTrucksJson.mapToTrucksJson()");
         List<TruckJson> truckJsonList = new ArrayList<>();
-        for (Truck truckV2 : trucks) {
+        for (Truck truck : trucks) {
             List<Integer> cargoJson = new ArrayList<>();
-            for (Cargo cargo : truckV2.getCargoList()) {
+            for (Cargo cargo : truck.getCargoList()) {
                 cargoJson.add(cargo.number());
             }
             truckJsonList.add(new TruckJson(cargoJson));

@@ -33,7 +33,7 @@ public class TruckServiceV3Impl implements TruckService {
 
     private Truck loadingTruck(Cargo cargo) {
         return Truck.builder()
-                .cargoTruck(TruckUtil.getCargoPosition(new int[TruckUtil.CAR_CASE_HEIGHT][TruckUtil.CAR_CASE_WIDTH],cargo).getCargoTruck())
+                .cargoTruck(TruckUtil.getCargoPosition(new int[TruckUtil.CAR_CASE_HEIGHT][TruckUtil.CAR_CASE_WIDTH], cargo).getCargoTruck())
                 .cargoList(List.of(cargo))
                 .build();
     }

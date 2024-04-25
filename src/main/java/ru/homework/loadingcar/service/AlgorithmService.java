@@ -18,10 +18,8 @@ public class AlgorithmService {
         reflections.getSubTypesOf(TruckService.class).stream()
                 .forEach(aClass -> createTruckServiceAndPutIntoMap(aClass));
 
-        for (var algorithmType: AlgorithmType.values())
-        {
-            if(!map.containsKey(algorithmType))
-            {
+        for (var algorithmType : AlgorithmType.values()) {
+            if (!map.containsKey(algorithmType)) {
                 throw new IllegalStateException("Not all values of AlgorithmType have appropriate TruckService");
             }
         }
@@ -33,8 +31,7 @@ public class AlgorithmService {
         map.put(truckService.getAlgorithmType(), truckService);
     }
 
-    public static List<Truck> loadingTrucksList(List<Cargo> cargoList, AlgorithmType algorithmType)
-    {
+    public static List<Truck> loadingTrucksList(List<Cargo> cargoList, AlgorithmType algorithmType) {
         return map.get(algorithmType).getLoadingTrucksList(cargoList);
     }
 }

@@ -13,7 +13,7 @@ class CargoForDeliteServiceTest {
     @Test
     void getPackageList() {
         CargoServiceImpl cargoServiceImpl = new CargoServiceImpl();
-        List<Cargo> packageList = cargoServiceImpl.getCargoList("333");
+        List<Cargo> packageList = cargoServiceImpl.createCargoList("333");
         assertEquals(3, packageList.get(0).number());
     }
 

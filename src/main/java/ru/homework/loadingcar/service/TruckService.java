@@ -6,7 +6,8 @@ import ru.homework.loadingcar.type.AlgorithmType;
 
 import java.util.List;
 
-public interface TruckService{
+public interface TruckService {
     List<Truck> getLoadingTrucksList(List<Cargo> cargoList);
+
     AlgorithmType getAlgorithmType();
 }

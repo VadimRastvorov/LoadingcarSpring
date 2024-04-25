@@ -54,10 +54,9 @@ public class TruckUtil {
     }
 
     public static int[][] getMatrixCargoTruck(List<Cargo> cargoList) {
-        log.info("запуск метода TruckUtil.getMatrixCargoTruck: {}", cargoList.stream().map(a->a.number()).toList());
+        log.info("запуск метода TruckUtil.getMatrixCargoTruck: {}", cargoList.stream().map(a -> a.number()).toList());
         int[][] outCargoTruck = new int[CAR_CASE_HEIGHT][CAR_CASE_WIDTH];
-        for(Cargo cargoSize : cargoList)
-        {
+        for (Cargo cargoSize : cargoList) {
             boolean loadingNewCar = true;
             for (int i = 0; i < CAR_CASE_HEIGHT; i++) {
                 for (int j = 0; j < CAR_CASE_WIDTH; j++) {
@@ -70,8 +69,8 @@ public class TruckUtil {
                         }
                         if (heightFlag) {
                             loadingNewCar = false;
-                            for(int f = 0;f<cargoSize.size().length;f++) {
-                                for(int g = 0; g < cargoSize.size()[f]; g++) {
+                            for (int f = 0; f < cargoSize.size().length; f++) {
+                                for (int g = 0; g < cargoSize.size()[f]; g++) {
                                     outCargoTruck[i + f][j + g] = cargoSize.number();
                                 }
                             }

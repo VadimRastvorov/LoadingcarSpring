@@ -5,5 +5,5 @@ import ru.homework.loadingcar.entity.Truck;
 import java.util.List;
 
 public interface PrintService {
-    String Print(List<Truck> truckList);
+    String printTruckListToString(List<Truck> truckList);
 }

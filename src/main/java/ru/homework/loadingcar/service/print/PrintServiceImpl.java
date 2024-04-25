@@ -10,14 +10,14 @@ import java.util.List;
 @Slf4j
 @Service
 public class PrintServiceImpl implements PrintService {
-    public String Print(List<Truck> truckList) {
+    public String printTruckListToString(List<Truck> truckList) {
         StringBuilder stringBuilder = new StringBuilder();
         truckList.stream()
-                .forEach(a -> PrintOneCar(a, stringBuilder));
+                .forEach(a -> printTruckToStringBuilder(a, stringBuilder));
         return stringBuilder.toString();
     }
 
-    private StringBuilder PrintOneCar(Truck truck, StringBuilder stringBuilder) {
+    private StringBuilder printTruckToStringBuilder(Truck truck, StringBuilder stringBuilder) {
         return stringBuilder.append(System.getProperty("line.separator")).append(truck.toString());
     }
 }

@@ -22,21 +22,21 @@ public class JsonService {
     private final String FILE_DIRECTORY_RESOURCES = "json";
 
     @SneakyThrows
-    public void Serialization(List<Truck> truck, String fileName) {
+    public void serialization(List<Truck> truck, String fileName) {
         log.info("запуск метода Serialization с truckV2s: '{}'", truck.stream()
-                .map(a->a.getCargoList())
+                .map(Truck::getCargoList)
                 .toList());
         TrucksJson trucksJson = new TrucksToTrucksJson(truck).mapToTrucksJson();
         ObjectMapper mapper = new ObjectMapper();
         mapper.writeValue(new File(getStringFileContent(fileName)), trucksJson);
     }
 
-    public List<Truck> DeSerialization(String fileName) throws IOException {
+    public List<Truck> deSerialization(String fileName) throws IOException {
         log.info("запуск метода DeSerialization");
         ObjectMapper mapper = new ObjectMapper();
         String readString = Files.readString(Path.of(getStringFileContent(fileName)));
         TrucksJson trucksJsonRead = mapper.readValue(new StringReader(readString), TrucksJson.class);
-        return new TrucksJsonToTrucks(trucksJsonRead).mapToTruckV2List();
+        return new TrucksJsonToTrucks(trucksJsonRead).mapToTruckList();
     }
 
     private String getStringFileContent(String fileName) {
